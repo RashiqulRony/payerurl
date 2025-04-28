@@ -4,7 +4,7 @@ namespace Rashiqulrony\Payerurl;
 
 class Payerurl
 {
-    private static function payment($invoiceId, $amount, $currency = 'usd', $data)
+    public static function payment($invoiceId, $amount, $currency = 'usd', $data)
     {
         try {
             /**
@@ -39,8 +39,8 @@ class Payerurl
              * Get your API key : https://dash.payerurl.com/profile/get-api-credentials
              */
 
-            $payerurl_public_key = $data['public_key'];  // this credentials open for public
-            $payerurl_secret_key = $data['secret_key']; // this credentials open for public
+            $payerurl_public_key = config('payerurl.public_key');  // this credentials open for public
+            $payerurl_secret_key = config('payerurl.secret_key'); // this credentials open for public
 
             /**
              * Order items
