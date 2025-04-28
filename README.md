@@ -1,11 +1,12 @@
+# PayerURL Laravel Package
+
 [![Latest Stable Version](https://poser.pugx.org/rashiqulrony/payerurl/v/stable)](https://packagist.org/packages/rashiqulrony/payerurl)
 [![Total Downloads](https://poser.pugx.org/rashiqulrony/payerurl/downloads)](https://packagist.org/packages/rashiqulrony/payerurl)
 [![License](https://poser.pugx.org/rashiqulrony/payerurl/license)](https://packagist.org/packages/rashiqulrony/payerurl)
 
+A simple Laravel package for [brief package description here].
 
-## Install
-
-Via Composer
+## Installation
 
 ```bash
 composer require rashiqulrony/payerurl
@@ -137,6 +138,17 @@ $response = Payerurl::payment($invoiceId, $amount, $currency, $data);
 'message' => "Something went wrong. Please try again.",
 ~~~
 
+
+---
+
+✅ **Done!**  
+When you push this `README.md` to your GitHub repository, it will show badges immediately!  
+**No manual update needed** — Packagist will auto-refresh version/downloads after you push tags/releases.
+
+---
+
+Would you also like me to show you **how to make automatic GitHub Actions to update your Packagist on every push** (extra pro setup)? 🚀  
+👉 (it’s very easy and professional) — just tell me!
 
 
 
