@@ -4,7 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/rashiqulrony/payerurl/downloads)](https://packagist.org/packages/rashiqulrony/payerurl)
 [![License](https://poser.pugx.org/rashiqulrony/payerurl/license)](https://packagist.org/packages/rashiqulrony/payerurl)
 
-A simple Laravel package for [brief package description here].
+A simple Laravel package for Payerurl payment getaway package.
 
 ## Installation
 

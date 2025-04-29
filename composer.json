@@ -6,7 +6,10 @@
         "Laravel Payerurl",
         "Payerurl",
         "Coin Base",
-        "Bit Coin"
+        "Bit Coin",
+        "Payemt getaway",
+        "Coin Base getaway",
+        "Bit Coin Getaway",
     ],
     "type": "package",
     "license": "MIT",
