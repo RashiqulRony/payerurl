@@ -4,7 +4,7 @@ namespace Rashiqulrony\Payerurl;
 
 class Payerurl
 {
-    public static function payment($invoiceId, $amount, $currency = 'usd', $data)
+    public static function payment($invoiceId, $currency = 'usd', $data, $orderItems)
     {
         try {
             /**
@@ -45,13 +45,28 @@ class Payerurl
             /**
              * Order items
              */
-            $items = [
-                [
-                    'name' => str_replace(' ', '_', 'Order item name'), // Replace spaces with '_' , no space allowed
-                    'qty' => 'Order item quantity',
-                    'price' => '123',
-                ]
-            ];
+            if (empty($orderItems)) {
+                return [
+                    'status' => false,
+                    'message' => "Order item empty. Please input order items.",
+                ];
+            }
+
+            $items = [];
+            $amount = 0;
+            foreach ($orderItems as $orderItem) {
+                if ($orderItem['qty'] > 0) {
+                    $qty = $orderItem['qty'];
+                } else {
+                    $qty = 1;
+                }
+                $items[] = [
+                    'name' => str_replace(' ', '_', $orderItem['name']),
+                    'qty' => $qty,
+                    'price' => $orderItem['price']
+                ];
+                $amount += $orderItem['price'] * $orderItem['qty'];
+            }
 
             /**
              * API params

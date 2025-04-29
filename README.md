@@ -57,7 +57,7 @@ return [
 ## 💳 PayerURL Payment Integration – Laravel
 ###### This method allows you to integrate with the PayerURL Payment Gateway using a simple PHP function. It's designed for systems where server-to-server communication is preferred over frontend SDKs.
 
-## 📌 Function: payment($invoiceId, $amount, $currency = 'usd', $data)
+## 📌 Function: payment($invoiceId, $currency, $data, $orderItems)
 ###### Handles the payment process with PayerURL API and redirects the customer to the payment page.
 
 ## 🔑 GET API KEY
@@ -92,6 +92,20 @@ $data = [
     'notify_url'   => 'https://yourdomain.com/api/payment-notify',
     'cancel_url'   => 'https://yourdomain.com/checkout'
 ];
+
+// Must be order item is required* and quantity will be minimum 1 
+$orderItems = [
+     [
+         'name' => "Order item name",
+         'qty' => '2',
+         'price' => '100',
+     ],
+     [
+         'name' => "Order item name",
+         'qty' => '1',
+         'price' => '200',
+     ],
+]
 ~~~
 
 ## 🚀 How It Works
@@ -109,10 +123,8 @@ $data = [
 ~~~php
 use Rashiqulrony\Payerurl\Payerurl;
 
-$invoiceId = 'INV-1001';
-$amount = 1000; // $10.00
+$invoiceId = rand(0000000, 9999999); // Must be random Invoice ID
 $currency = 'usd';
-
 $data = [
     'first_name' => 'Alice',
     'last_name' => 'Smith',
@@ -122,7 +134,22 @@ $data = [
     'cancel_url' => 'https://yoursite.com/cart'
 ];
 
-$response = Payerurl::payment($invoiceId, $amount, $currency, $data);
+// Must be order item is required* and quantity will be minimum 1 
+$orderItems = [
+     [
+         'name' => "Order item name",
+         'qty' => '2',
+         'price' => '100',
+     ],
+     [
+         'name' => "Order item name",
+         'qty' => '1',
+         'price' => '200',
+     ],
+]
+
+
+$response = Payerurl::payment($invoiceId, $currency, $data, $orderItems);
 ~~~
 
 ## 🧪 Response
@@ -135,7 +162,7 @@ $response = Payerurl::payment($invoiceId, $amount, $currency, $data);
 ###### Payment Error
 ~~~
 'status' => false,
-'message' => "Something went wrong. Please try again.",
+'message' => "Error Message",
 ~~~
 
 
